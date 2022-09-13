@@ -1,8 +1,8 @@
-#include "main.h"
+#include"main.h"
 /**
-* main - print Holberton
+*main - print Holberton
 *
-* Return: Always 0 (success)
+*Return: Always 0 (success)
 */
 int main(void)
 {
