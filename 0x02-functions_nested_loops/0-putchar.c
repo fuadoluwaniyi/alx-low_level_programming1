@@ -1,11 +1,9 @@
 #include "main.h"
-
 /**
  * main - print Holberton
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	_putchar('_');
