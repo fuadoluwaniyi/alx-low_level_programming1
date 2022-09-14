@@ -1,9 +1,9 @@
 #include <stdio.h>
-#define LARGEST 10000000000
+#include LARGEST 1000000000
 /**
  * main - main block
- * Description: Find and print the first 98 fib numbers starting with 1 and 2.
- * Numbers should be coma and space separated.
+ * Description: Find and print the first 98 fib numbers startung with 1 and 2
+ * Numbers should be coma and space seperated
  * Return: 0
  */
 int main(void)
