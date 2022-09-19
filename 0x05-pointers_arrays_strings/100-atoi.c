@@ -18,7 +18,7 @@ int _atoi(char *s)
 	int i;
 	int h, p;
 
-	h = =;
+	h = 0;
 	p = -1;
 	for (i = 0; s[i] != '\0'; i++)
 	{
