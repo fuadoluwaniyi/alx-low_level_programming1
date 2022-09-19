@@ -7,7 +7,7 @@
  * Description: swap_int swaps the value of *a snd *b
  */
 
-void swap_int(int *a and *b)
+void swap_int(int *a, int *b)
 {
 	int c;
 
