@@ -1,53 +1,78 @@
+#include "main.h"
 #include <stdio.h>
 
 /**
- * print_buffer - print a buffer 10 bytes at a time, displaying the line
- * number in hex and byte pairs in hex
- *
- * @b: string to print from
+ * isPrintableASCII - determines if n is a printable ASCII char
+ * @n: integer
+ * Return: 1 if true, 0 if false
+ */
+int isPrintableASCII(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * printHexes - print hex values for string b in formatted form
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printHexes(char *b, int start, int end)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < end)
+			printf("%02x", *(b + start + i));
+		else
+			printf("  ");
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * printASCII - print ascii values for string b,
+ * formatted to replace nonprintable chars with '.'
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: string
  * @size: size of buffer
- *
- * Return: void
  */
 void print_buffer(char *b, int size)
 {
-	int i, counter = 0, size2 = size;
-	char *ptr = b;
+	int start, end;
 
-	if (size == 0)
-		printf("\n");
-	while (size > 0)
+	if (size > 0)
 	{
-		printf("%08x:", counter);
-		i = 0;
-		while (size > 0 && i < 10)
+		for (start = 0; start < size; start += 10)
 		{
-			if (!(i % 2))
-				printf(" ");
-			printf("%02x", *ptr++);
-			i++;
-			size--;
-			counter++;
+			end = (size - start < 10) ? size - start : 10;
+			printf("%08x: ", start);
+			printHexes(b, start, end);
+			printASCII(b, start, end);
+			printf("\n");
 		}
-		while (counter % 10 != 0)
-		{
-			if (!(counter % 2))
-				printf(" ");
-			printf("  ");
-			counter++;
-		}
-		printf(" ");
-		i = 0;
-		while (size2 > 0 && i < 10)
-		{
-			if (*b > 31 && *b != 127)
-				printf("%c", *b);
-			else
-				printf(".");
-			size2--;
-			i++;
-			b++;
-		}
+	} else
 		printf("\n");
-	}
 }

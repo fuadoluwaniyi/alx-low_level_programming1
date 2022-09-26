@@ -1,39 +1,31 @@
 #include "main.h"
-
 /**
- * cap_string - capitalize all words of a string
- * @str: string
- * Return: `str`
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
  */
 
-char *cap_string(char *str)
+
+char *cap_string(char *s)
 {
-	int i, c;
-	int trigger;
-	char nots[] = ",;.!?(){}\n\t\" ";
+int count = 0, i;
+int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	for (i = 0, trigger = 0; str[i] != '\0'; i++)
-	{
-		if (str[0] > 96 && str[0] < 123)
-			trigger = 1;
-		for (c = 0; nots[c] != '\0'; c++)
-		{
-			if (nots[c] == str[i])
-				trigger = 1;
-		}
-
-		if (trigger)
-		{
-			if (str[i] > 96 && str[i] < 123)
-			{
-				str[i] -= 32;
-				trigger = 0;
-			}
-			else if (str[i] > 64 && str[i] < 91)
-				trigger = 0;
-			else if (str[i] > 47 && str[i] < 58)
-				trigger = 0;
-		}
-	}
-	return (str);
+if (*(s + count) >= 97 && *(s + count) <= 122)
+*(s + count) = *(s + count) - 32;
+count++;
+while (*(s + count) != '\0')
+{
+for (i = 0; i < 13; i++)
+{
+if (*(s + count) == separators[i])
+{
+if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+*(s + (count + 1)) = *(s + (count + 1)) - 32;
+break;
+}
+}
+count++;
+}
+return (s);
 }
