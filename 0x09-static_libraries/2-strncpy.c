@@ -1,22 +1,30 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * _strncpy - Copy a string starting from index 0 of `dest`.
- * @dest: string
- * @src: string
- * @n: number of chars to copy over
- * Return: `dest` edited string
+ *_strncpy - copies a string
+ *@dest: A pointer to a character that will be changed
+ *@src: A pointer to a character that will be changed
+ *@n: value
+ *Return: dest
  */
 
 char *_strncpy(char *dest, char *src, int n)
+
 {
-	int i;
+int i;
 
-	for (i = 0; i < n && src[i] != '\0'; i++)
-		dest[i] = src[i];
+i = 0;
+while (i < n && src[i] != '\0')
+{
+dest[i] = src[i];
+i++;
+}
 
-	for (; n > i; i++)
-		dest[i] = '\0';
+while (i < n)
+{
+dest[i] = '\0';
+i++;
+}
 
-	return (dest);
+return (dest);
+
 }

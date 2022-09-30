@@ -1,26 +1,31 @@
+#include "main.h"
+
 /**
- *  *  * _strpbrk - Returns pointer to first occurence of any of accept
- *   *   * in the string s
- *    *    *
- *     *     * @s: string to search
- *      *      * @accept: characters to look for
- *       *       *
- *        *        * Return: pointer to first occurrence of accept in s
- *         *         */
+ * _strpbrk - matches any character specified
+ * @s: This is the C string to be scanned.
+ * @accept:character in str1 that matches one of the characters in str2
+ *Return: string s that matches any character specified in accept
+ **/
+
 char *_strpbrk(char *s, char *accept)
 {
-			char *ptr = accept;
+	int j;
 
-						while (*s != 0)
-												{
-																					if (*s == *ptr && *ptr != 0)
-																																		return (s);
-																															ptr++;
-																																											if (*ptr == 0)
-																																																											{
-																																																																															ptr = accept;
-																																																																																																					s++;
-																																																																																																																													}
-																																																								}
-										return (0);
+	while (*s != '\0') /*Declaring WHILE*/
+	{
+		j = 0;
+		while (accept[j] != '\0')  /*Evaluating *accept*/
+		{
+			if (*s == accept[j])
+			{
+				return (s);
+			}
+
+			j++; /*add j+1*/
+		}
+
+		s++; /*add s+1*/
+	}
+	return (0);
+
 }
