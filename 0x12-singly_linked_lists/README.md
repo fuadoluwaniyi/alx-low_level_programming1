@@ -1,2 +1,1 @@
-General
-When and why using linked lists vs arrays
+A set of projects dealing with singly linked lists
