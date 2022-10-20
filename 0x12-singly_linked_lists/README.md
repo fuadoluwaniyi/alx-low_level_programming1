@@ -1,2 +1,2 @@
-General
-When and why using linked lists vs arrays
+introduction to link
+array against link it is for me.
